@@ -1,0 +1,79 @@
+{{!-- To disable logo home route --}}
+<script type="text/javascript">
+    
+	document.getElementById("register").style.visibility = "hidden";
+	document.getElementById("login").href="/admin/login";
+    document.getElementById("login").innerHTML = "logout";
+    document.getElementById("BusbeeLogo").href = "/admin/selectDate";
+    document.getElementById("BusBeeTitle").innerHTML = "BusBee - Admin Console"; 
+	
+</script>
+{{!--//To disable logo home route --}}
+<!-- Main -->
+	<main class="main" role="main">
+		<!-- Page info -->
+		<header class="site-title color">
+			<div class="wrap">
+				<div class="container">
+					<h1>Admin Console</h1>
+					<nav role="navigation" class="breadcrumbs">
+						<ul>
+							<li><a href="/admin/selectDate" title="bookTicket">Select Date</a></li>
+							<li>Admin Console</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- //Page info -->
+		
+
+		{{#if bookings}}
+		<div class="wrap">
+			<div class="row">
+				<!-- Tab -->
+				<article class="single" id="tab2">
+					<!-- Item -->
+					<div class="box history">
+						{{#each bookings}}
+						<div class="row" style="padding-bottom: 15px;">
+							<p>  
+								<b>Seat&nbsp;:&nbsp;{{seatNumber}}</b>&nbsp;&nbsp;
+                                Name&nbsp;:&nbsp;<b>{{name}}</b>&nbsp;&nbsp;
+                                Reg.No.&nbsp;:&nbsp;<b>{{registerNumber}}</b>&nbsp;&nbsp;<br>
+                                Email&nbsp;:&nbsp;<small style="font-size: 16px;"><b>{{email}}</b></small>&nbsp;&nbsp;
+                                Contact&nbsp;:&nbsp;<b>{{mobile}}</b>&nbsp;&nbsp;
+                                Gender&nbsp;:&nbsp;<b>{{gender}}</b>&nbsp;&nbsp;<br>
+                                Departure&nbsp;:&nbsp;<b>{{departureDate}}</b>&nbsp;&nbsp;
+                                Pick up&nbsp;:&nbsp;<b>{{pickup}}</b>&nbsp;&nbsp;
+                                Drop Off&nbsp;:&nbsp;<b>{{dropoff}}</b>&nbsp;&nbsp;
+                                total&nbsp;:&nbsp;<b>{{total}}</b>&nbsp;&nbsp;
+
+                            </p>
+						</div>
+						{{/each}}
+						<br>
+                        <a href="#" title="print" onclick="window.print()">Print</a>
+					</div>
+					<!-- //Item -->
+				</article>
+				<!-- //Tab -->					
+			</div>
+		</div>
+		{{else}}
+		<div class="wrap">
+			<div class="row">
+			<!-- Tab -->
+				<article class="single" id="tab2">
+					<!-- Item -->
+					<div class="box history">
+						<div style="font-size: 20px;font-weight: 300;text-align: center;">No Tickets booked for this date<br><a href="/admin/selectDate">choose another date</a></div>
+					</div>
+					<!-- //Item -->
+				</article>
+				<!-- //Tab -->	
+			</div>
+		</div>
+		{{/if}}
+	</main>
+	{{!-- /main --}}

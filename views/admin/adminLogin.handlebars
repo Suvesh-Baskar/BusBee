@@ -1,0 +1,70 @@
+{{!-- Script to disable go & forward --}}
+	<script>
+		document.getElementById("login").style.visibility = "hidden";
+		document.getElementById("register").style.visibility = "hidden";
+		document.getElementById("logout").style.visibility = "hidden";
+		document.getElementById("BusbeeLogo").href = "";
+		document.getElementById("BusBeeTitle").innerHTML = "BusBee - Admin Login";	
+		history.pushState(null, null, location.href);
+    	window.onpopstate = function () {
+    		    history.go(1);
+    	};
+	</script>
+{{!-- //Script to disable go & forward   --}}
+
+<!-- Main -->
+	<main class="main" role="main">
+		<!-- Page info -->
+		<header class="site-title color">
+			<div class="wrap">
+				<div class="container">
+					<h1>Login</h1>
+					<nav role="navigation" class="breadcrumbs">
+						<ul>
+							<li><a href="/" title="Home">Home</a></li>
+							<li>Login</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- //Page info -->
+		
+		<div class="wrap">
+			<div class="row">
+				<!--- Content -->
+				<div class="content one-half modal">
+					<!--Login-->
+					<div class="box">
+						<form action="/admin/login" method="POST">
+							{{#each errors}}	
+								<div class="full-width">
+									<input type="" value="{{text}}" class="btn color medium full" style="background-color: red" />
+								</div>
+							{{/each}}
+							<div class="f-row">
+								<div class="full-width">
+									<label for="username">Admin Id</label>
+									<input type="password" id="adminId" name="adminId"/>
+								</div>
+							</div>
+							<div class="f-row">
+								<div class="full-width">
+									<label for="password">Admin password</label>
+									<input type="password" id="adminPassword" name="adminPassword" />
+								</div>
+							</div>
+							<div class="f-row">
+								<div class="full-width">
+									<input type="submit" value="Login" class="btn color medium full" />
+								</div>
+							</div>
+						</form>
+					</div>
+					<!--//Login-->
+				</div>
+				<!--- //Content -->
+			</div>
+		</div>
+	</main>
+	<!-- //Main -->

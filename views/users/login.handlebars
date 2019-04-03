@@ -1,0 +1,78 @@
+{{!-- Script to disable go & forward --}}
+	<script>
+		document.getElementById("login").style.visibility = "hidden";
+		document.getElementById("register").style.visibility = "hidden";
+		document.getElementById("BusBeeTitle").innerHTML = "BusBee - Login";	
+		history.pushState(null, null, location.href);
+    	window.onpopstate = function () {
+    		    history.go(1);
+    	};
+	</script>
+{{!-- //Script to disable go & forward   --}}
+
+<!-- Main -->
+	<main class="main" role="main">
+		<!-- Page info -->
+		<header class="site-title color">
+			<div class="wrap">
+				<div class="container">
+					<h1>Login</h1>
+					<nav role="navigation" class="breadcrumbs">
+						<ul>
+							<li><a href="/" title="Home">Home</a></li>
+							<li>Login</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- //Page info -->
+		
+		<div class="wrap">
+			<div class="row">
+				<!--- Content -->
+				<div class="content one-half modal">
+					<!--Login-->
+					<div class="box">
+						<form action="/users/login" method="POST">
+							{{#if msg}}	
+								<div class="full-width" id="userMessage">
+									<input type="" id="userMessage"value="{{msg}}" class="btn color medium full" style="background-color: #81cfe0" />
+								</div>
+							{{/if}}
+							{{#if error}}	
+								<div class="full-width">
+									<input type="" value="{{error}}" class="btn color medium full" style="background-color: red" />
+								</div>
+							{{/if}}
+							<div class="f-row">
+								<div class="full-width">
+									<label for="username">Your email</label>
+									<input type="email" id="email" name="email" />
+								</div>
+							</div>
+							<div class="f-row">
+								<div class="full-width">
+									<label for="password">Your password</label>
+									<input type="password" id="password" name="password" />
+								</div>
+							</div>
+							<div class="f-row">
+								<div class="full-width">
+									<input type="submit" value="Login" class="btn color medium full" />
+								</div>
+							</div>
+							
+							<p>Dont have an account yet? <a href="/users/register">Sign up</a>.</p>
+						</form>
+					</div>
+					<!--//Login-->
+				</div>
+				<!--- //Content -->
+			</div>
+		</div>
+	</main>
+	<!-- //Main -->
+	<script>
+		setTimeout(function(){ document.getElementById("userMessage").innerHTML = "" }, 2000);
+	</script>

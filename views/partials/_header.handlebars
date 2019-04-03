@@ -1,0 +1,25 @@
+		<!-- Header -->
+		<header class="header" role="banner">
+			<div class="wrap">
+				<!-- Logo -->
+				<div class="logo">
+					<a href="/" title="Busbee" id="BusbeeLogo"><img src="images/main_logo_min.jpg" alt="Busbee" /></a>
+				</div>
+				<!-- //Logo -->
+				
+				<!-- Main Nav -->
+				<nav role="navigation" class="main-nav">
+					<ul>
+						{{#if user}}
+						<li><a href="/users/logout" id="logout" title="logout">Logout</a></li>
+						{{else}}
+						<li><a href="/users/login" id="login" title="login">Login</a></li>
+							
+						<li><a href="/users/register" id="register" title="register">Register</a></li>
+						{{/if}}
+					</ul>
+				</nav>
+				<!-- //Main Nav -->
+			</div>
+		</header>
+		<!-- //Header -->

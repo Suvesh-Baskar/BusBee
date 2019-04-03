@@ -1,0 +1,77 @@
+{{!-- To disable logo home route --}}
+<script type="text/javascript">
+
+	document.getElementById("register").style.visibility = "hidden";
+	document.getElementById("login").href="/admin/login";
+    document.getElementById("login").innerHTML = "logout";
+    document.getElementById("BusbeeLogo").href = "";
+    document.getElementById("BusBeeTitle").innerHTML = "BusBee - Admin Console"; 
+</script>
+{{!--//To disable logo home route --}}
+<!-- Main -->
+<main class="main" role="main">
+    <!-- Page info -->
+    <header class="site-title color">
+        <div class="wrap">
+            <div class="container">
+                <h1>Admin Console</h1>
+            </div>
+        </div>
+    </header>
+    <!-- //Page info -->
+
+
+    <div class="wrap">
+        <div class="row">
+
+            <!--- Sidebar -->
+            <aside class="one-fourth sidebar left">
+                <!-- Widget -->
+                <div class="widget">
+                    <ul class="categories">
+                        <li class="active"><a href="">Booking Date</a></li>
+                        {{#each errors}}
+                        <li><a>{{text}}</a></li>
+                        {{else}}
+                        {{/each}}
+                    </ul>
+                </div>
+                <!-- //Widget -->
+            </aside>
+            <!--- //Sidebar -->
+
+            <!--- Content -->
+            <div class="three-fourth content">
+                <!-- Tab -->
+
+                <article class="single" id="tab1">
+                    <form action="/admin/viewBookings" method="post">
+                        <div class="box">
+                            <h2>Travel Details</h2>
+                            <fieldset>
+                                <div class="f-row">
+                                    <div class="one-half">
+                                    <label>Departure Date</label>
+                                    <select id="departureDate" name="departureDate">
+                                        <option selected>&nbsp;</option>
+                                        <option value="10-May-2019">May 10, 2019</option>
+                                        <option value="13-May-2019">May 13, 2019</option>
+                                    </select>
+                                </div>
+                                </div>
+                                
+                                <button style="padding-top: 10px" type="submit" id="submit1" class="btn color medium">View Tickets</button>
+                            </fieldset>
+                        </div>
+                    </form>
+            </div>
+            <!-- /Trip Details -->
+            </article>
+
+            <!-- //Tab -->
+        </div>
+        <!--- //Content -->
+    </div>
+    </div>
+</main>
+<!-- //Main -->

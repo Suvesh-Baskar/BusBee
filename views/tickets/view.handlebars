@@ -1,0 +1,73 @@
+<!-- Main -->
+	<main class="main" role="main">
+		<!-- Page info -->
+		<header class="site-title color">
+			<div class="wrap">
+				<div class="container">
+					<h1>My account</h1>
+					<nav role="navigation" class="breadcrumbs">
+						<ul>
+							<li><a href="/tickets/bookDate" title="bookTicket">Book Ticket</a></li>
+							<li>My account</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- //Page info -->
+		
+		{{#each tickets}}
+		
+		<div class="wrap">
+			<div class="row">
+				<!-- Tab -->
+				<article class="single" id="tab2">
+					<!-- Item -->
+					<div class="box history">
+						<h6>
+							Date&nbsp;:&nbsp;&nbsp;{{departureDate}} <br />{{pickup}}<small>&nbsp;&nbsp;to&nbsp;&nbsp;</small>{{dropoff}} <br/><small>2+2 Single Tier Semi Sleeper </small> Multiaxle A/C Mercedes Benz 
+						</h6>
+						<div class="row">
+							
+							<div class="two-third">
+								<p>Name&nbsp;:&nbsp;&nbsp;{{name}}</p>
+							</div>	
+							<div class="one-third">
+								<p>Reg. No.&nbsp;:&nbsp;&nbsp;{{registerNumber}}</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="one-third">
+								<p>Gender&nbsp;:&nbsp;&nbsp;{{gender}}</p>
+							</div>
+							<div class="one-third">
+								<p>Seat Number&nbsp;:&nbsp;&nbsp;{{seatNumber}}</p>
+							</div>
+							<div class="one-third">
+								<p>Contact&nbsp;:&nbsp;&nbsp;{{mobile}}</p>
+							</div>	
+						</div>
+						<div class="price">Ticket Fare :   &#x20b9 {{total}}.00</div>
+					</div>
+					<!-- //Item -->
+				</article>
+				<!-- //Tab -->					
+			</div>
+		</div>
+		{{else}}
+			<div class="wrap">
+				<div class="row">
+				<!-- Tab -->
+				<article class="single" id="tab2">
+					<!-- Item -->
+					<div class="box history">
+						<div style="font-size: 20px;font-weight: 300;text-align: center;">No Tickets booked<br><a href="/tickets/bookDate">Head back to Book tickets</a></div>
+					</div>
+					<!-- //Item -->
+				</article>
+				<!-- //Tab -->	
+				</div>
+			</div>
+		{{/each}}
+	</main>
+	{{!-- /main --}}

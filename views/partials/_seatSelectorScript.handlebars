@@ -1,0 +1,87 @@
+	<!-- Seat Selector Scripts -->
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="js/jQuery-Seat-Charts/jquery.seat-charts.js"></script>
+		
+		<script>
+			var firstSeatLabel = 1;
+		
+			$(document).ready(function() {
+				var $cart = $('#selected-seats'),
+					$seatSelected = $('#seatSelected'),
+					$alreadyBooked = $('#alreadyBooked'),
+					$total = $('#total'),
+					sc = $('#seat-map').seatCharts({
+					map: [
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'ee_ee',
+						'eeeee',
+					],
+					seats: {
+						e: {
+							price   : 1800,
+							classes : 'economy-class', //your custom CSS class
+							category: 'Economy Class'
+						}					
+					
+					},
+					naming : {
+						top : false,
+						getLabel : function (character, row, column) {
+							return firstSeatLabel++;
+						},
+					},
+					legend : {
+						node : $('#legend'),
+					    items : [
+							[ 'f', 'available',   'First Class' ],
+							[ 'e', 'available',   'Economy Class'],
+							[ 'f', 'unavailable', 'Already Booked']
+					    ]					
+					},
+					click: function () {
+						
+		
+						if (this.status() == 'available') {
+
+							sc.get([$seatSelected.val()]).status('available');
+							
+							$cart.val(this.settings.label).data('seatId', this.settings.id);
+							$seatSelected.val(this.settings.id);
+							
+							$total.val(this.data().price);
+							
+							return 'selected';
+						} else if (this.status() == 'selected') {
+
+
+							var input_value = (this.settings.label).toString();
+							var input_value1 = (this.settings.id).toString();
+							$total.val(0);
+							$cart.val('');
+							return 'available';
+
+						} else if (this.status() == 'unavailable') {
+							//seat has been already booked
+							return 'unavailable';
+						} else {
+							return this.style();
+						}
+					},
+					
+						
+
+				});
+				sc.get($alreadyBooked.val().split(',')).status('unavailable');
+		});		
+		</script>
+	<!-- //Seat Selector Scripts -->
