@@ -1,77 +1,78 @@
 {{!-- To disable logo home route --}}
 <script type="text/javascript">
-    document.getElementById("BusbeeLogo").href="";
+	document.getElementById("BusbeeLogo").href = "";
 	document.getElementById("BusBeeTitle").innerHTML = "BusBee - Book Ticket";	 
 </script>
 {{!--//To disable logo home route --}}
-	<!-- Main -->
-	<main class="main" role="main">
-		<!-- Page info -->
-		<header class="site-title color">
-			<div class="wrap">
-				<div class="container">
-					<h1>My account</h1>
-					<nav role="navigation" class="breadcrumbs">
-						<ul>
-							<li><a href="/tickets/bookDate" title="viewTicket">Change Date</a></li>
-							<li><a href="/tickets/view" title="viewTicket">View Bookings</a></li>
-							<li>My account</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<!-- //Page info -->
-		
-		
+<!-- Main -->
+<main class="main" role="main">
+	<!-- Page info -->
+	<header class="site-title color">
 		<div class="wrap">
-			<div class="row">
-				
-				<!--- Sidebar -->
-				<aside class="one-fourth sidebar left">
-					<!-- Widget -->
-					<div class="widget">
-						<ul class="categories">
-							<li class="active"><a href="">Book Ticket</a></li>
-							{{#each errors}}
-							<li><a>{{text}}</a></li>
-							{{else}}
-							{{/each}}
-						</ul>
-					</div>
-					<!-- //Widget -->
-				</aside>
-				<!--- //Sidebar -->
-				
-				<!--- Content -->
-				<div class="three-fourth content">
-					<!-- Tab -->
-					
-					<article class="single" id="tab1">
-						<form action="/tickets/view" method="post">
+			<div class="container">
+				<h1>My account</h1>
+				<nav role="navigation" class="breadcrumbs">
+					<ul>
+						<li><a href="/tickets/bookDate" title="viewTicket">Change Date</a></li>
+						<li><a href="/tickets/view" title="viewTicket">View Bookings</a></li>
+						<li>My account</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- //Page info -->
+
+
+	<div class="wrap">
+		<div class="row">
+
+			<!--- Sidebar -->
+			<aside class="one-fourth sidebar left">
+				<!-- Widget -->
+				<div class="widget">
+					<ul class="categories">
+						<li class="active"><a href="">Book Ticket</a></li>
+						{{#each errors}}
+						<li><a>{{text}}</a></li>
+						{{else}}
+						{{/each}}
+					</ul>
+				</div>
+				<!-- //Widget -->
+			</aside>
+			<!--- //Sidebar -->
+
+			<!--- Content -->
+			<div class="three-fourth content">
+				<!-- Tab -->
+
+				<article class="single" id="tab1">
+					<form action="/tickets/view" method="post">
 						<div class="box">
 							<h2>Student and Travel Details</h2>
 							<fieldset>
 								<!-- Student Details -->
-								
+
 								<div class="f-row">
 									<div class="one-half">
 										<label for="name">Student Name</label>
-										<input type="text" id="name" name="name" value="{{name}}" required/>
+										<input type="text" id="name" name="name" value="{{name}}" required />
 									</div>
 									<div class="one-half">
 										<label for="company">Student register Number</label>
-										<input type="number" id="registerNumber" name="registerNumber" value="{{registerNumber}}"required/>
+										<input type="number" id="registerNumber" name="registerNumber"
+											value="{{registerNumber}}" required />
 									</div>
 								</div>
 								<div class="f-row">
 									<div class="one-half">
 										<label for="email">Email address</label>
-										<input type="email" id="email" name="email" value="{{email}}" required/>
+										<input type="email" id="email" name="email" value="{{email}}" required />
 									</div>
 									<div class="one-half">
 										<label for="number">Mobile number</label>
-										<input type="number" id="number" name="number" value="{{number}}" required/>
+										<input type="number" id="number" name="number" value="{{number}}" required />
 									</div>
 								</div>
 								<!-- /Student Details -->
@@ -80,14 +81,15 @@
 									<div class="one-half">
 										<label>Gender</label>
 										<select id="gender" name="gender">
-										<option selected>&nbsp;</option>
+											<option selected>&nbsp;</option>
 											<option value="male">Male</option>
 											<option value="female">Female</option>
 										</select>
 									</div>
 									<div class="one-half">
 										<label>Departure Date</label>
-										<input type="text" id="departureDate" name="departureDate" readonly value={{departureDate}} />	
+										<input type="text" id="departureDate" name="departureDate" readonly
+											value={{departureDate}} />
 									</div>
 								</div>
 								<div class="f-row">
@@ -97,64 +99,68 @@
 											<option selected>&nbsp;</option>
 											<optgroup label="SASTRA">
 												<option value="SASTRA">SASTRA Deemed University</option>
-											</optgroup>	
+											</optgroup>
 										</select>
 									</div>
 									<div class="one-half">
 										<label>Drop off location</label>
 										<select id="dropOffLocation" name="dropOffLocation">
-										<option selected>&nbsp;</option>
+											<option selected>&nbsp;</option>
 											<optgroup label="Andra Pradesh">
 												<option value="Vijayawada">Vijayawada</option>
+												<option value="Guntur">Guntur</option>
+												<option value="Nellore">Nellore</option>
 											</optgroup>
 										</select>
 									</div>
 								</div>
-							</fieldset>		
-							</div>
-							
-							<div class="box">				
-								<h2>Booking Details</h2>
-									<fieldset>
-										<div class="f-row">
-											<div class="one-half">
-												<div class="wrapper">
-													<div class="container">
-														<div id="seat-map">
-															<div class="front-indicator">Front</div>	
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="one-half" style="padding-top: 50px"> 
-												<div class="new_input">
-													<label for="selectedSeats">Seat Number</label>
-													<input type="text" id="selected-seats" name="seatNumber"  readonly />
-												</div>
-												<div class="new_input">
-													<label for="totalAmount">Amount Payable in &#x20b9;</label>
-													<input type="text" id="total" name="total" readonly />
-												</div>
-												<button style="padding-top: 10px" type="submit" id="submit1" class="btn color medium">Book Now</button>
-												<div style="visibility: hidden;">
-													<input type="text" id="alreadyBooked" name="alreadyBooked" value="{{bookedSeats}}" readonly />
-												</div>
-												<div style="visibility: hidden;">
-													<input type="text" id="seatSelected" name="seatLabel" readonly />
+							</fieldset>
+						</div>
+
+						<div class="box">
+							<h2>Booking Details</h2>
+							<fieldset>
+								<div class="f-row">
+									<div class="one-half">
+										<div class="wrapper">
+											<div class="container">
+												<div id="seat-map">
+													<div class="front-indicator">Front</div>
 												</div>
 											</div>
 										</div>
-									</fieldset>
+									</div>
+									<div class="one-half" style="padding-top: 50px">
+										<div class="new_input">
+											<label for="selectedSeats">Seat Number</label>
+											<input type="text" id="selected-seats" name="seatNumber" readonly />
+										</div>
+										<div class="new_input">
+											<label for="totalAmount">Amount Payable in &#x20b9;</label>
+											<input type="text" id="total" name="total" readonly />
+										</div>
+										<button style="padding-top: 10px" type="submit" id="submit1"
+											class="btn color medium">Book Now</button>
+										<div style="visibility: hidden;">
+											<input type="text" id="alreadyBooked" name="alreadyBooked"
+												value="{{bookedSeats}}" readonly />
+										</div>
+										<div style="visibility: hidden;">
+											<input type="text" id="seatSelected" name="seatLabel" readonly />
+										</div>
+									</div>
 								</div>
-							</form>
+							</fieldset>
 						</div>
-						<!-- /Trip Details -->
-					</article>
-				
-					<!-- //Tab -->
-				</div>
-				<!--- //Content -->
+					</form>
 			</div>
+			<!-- /Trip Details -->
+			</article>
+
+			<!-- //Tab -->
 		</div>
-	</main>
-	<!-- //Main -->
+		<!--- //Content -->
+	</div>
+	</div>
+</main>
+<!-- //Main -->
